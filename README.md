@@ -1,16 +1,64 @@
-# React + Vite
+# SonoFabrik
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**SonoFabrik** is a middleware for creating sound objects from natural-language prompts using open-source neural audio models, and arranging them in a DAW-like environment.
 
-Currently, two official plugins are available:
+Generated sounds can be exported as individual audio files or as a complete mix. SonoFabrik can also export **REAPER projects** and **Python scripts** for the underlying command-line-driven audio generation engine.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Installation
 
-## React Compiler
+Clone or download the repository, then open a terminal in the `sonofabrik` directory.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Install Node.js dependencies
 
-## Expanding the Oxlint configuration
+```console
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### 2. Install Python dependencies
+
+It is recommended to use a Python virtual environment:
+
+```console
+python -m venv .venv
+```
+
+Activate it and install the required packages:
+
+```console
+pip install -r requirements.txt
+```
+
+### 3. Download Stable Audio Open
+
+Download **[Stable Audio Open 1.0](https://huggingface.co/stabilityai/stable-audio-open-1.0)** from Hugging Face.
+
+Place the downloaded `stable-audio-open-1.0` directory inside the root of the SonoFabrik repository:
+
+```text
+sonofabrik/
+├── stable-audio-open-1.0/
+├── server.py
+├── requirements.txt
+├── package.json
+└── ...
+```
+
+## Running SonoFabrik
+
+SonoFabrik consists of a Python backend and a web-based graphical interface. Start the backend first:
+
+```console
+python server.py
+```
+
+Then, in a second terminal, launch the development server:
+
+```console
+npm run dev
+```
+
+Once the server has started, open your browser at:
+
+**http://localhost:5173/**
+
+Have fun with SonoFabrik!
