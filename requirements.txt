@@ -1,6 +1,9 @@
+accelerate
 argparse
-torch
-soundfile
 diffusers
 flask
 flask-cors
+soundfile
+torch
+torchsde
+transformers
