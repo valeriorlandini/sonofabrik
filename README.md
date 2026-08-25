@@ -6,6 +6,7 @@ Generated sounds can be exported as individual audio files or as a complete mix.
 
 ## Installation
 
+These steps have been tested on Linux, but they should be almost identical in macOS and Windows. Specific compatibility testings coming soon.
 Clone or download the repository, then open a terminal in the `sonofabrik` directory.
 
 ### 1. Install Node.js dependencies
@@ -16,13 +17,19 @@ npm install
 
 ### 2. Install Python dependencies
 
-It is recommended to use a Python virtual environment:
+It is recommended to use a Python virtual environment. If you do not have one, you can create it with:
 
 ```console
 python -m venv .venv
 ```
 
-Activate it and install the required packages:
+Activate it:
+
+```console
+source .venv/bin/activate
+```
+
+Install the required packages:
 
 ```console
 pip install -r requirements.txt
@@ -30,9 +37,16 @@ pip install -r requirements.txt
 
 ### 3. Download Stable Audio Open
 
-Download **[Stable Audio Open 1.0](https://huggingface.co/stabilityai/stable-audio-open-1.0)** from Hugging Face.
+Download **[Stable Audio Open 1.0](https://huggingface.co/stabilityai/stable-audio-open-1.0)** from Hugging Face. You can do it from the command line, once you have installed [HuggingFace CLI](https://huggingface.co/docs/huggingface_hub/guides/cli) with:
 
-Place the downloaded `stable-audio-open-1.0` directory inside the root of the SonoFabrik repository:
+```console
+hf auth login
+hf download hf://stabilityai/stable-audio-open-1.0/ --local-dir ./stable-audio-open-1.0
+```
+
+Note that you must have a HuggingFace account and a valid token (both are free to obtain), because Stable Audio Open is a gated model.
+
+You now should have `stable-audio-open-1.0` directory inside the root of the SonoFabrik repository:
 
 ```text
 sonofabrik/
